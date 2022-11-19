@@ -2,8 +2,8 @@
 #define mandelbrot_c_mandelbrot
 
 typedef struct {
-  double real;
-  double imaginary;
+    double real;
+    double imaginary;
 } Complex;
 
 inline Complex complex_add(Complex a, Complex b);

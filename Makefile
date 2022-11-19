@@ -3,20 +3,24 @@ CC := clang
 SDL2_INCLUDE_PATH := # put path here
 SDL2_LIB_PATH := # put path here
 
-CFLAGS = -c -std=c17 -O3
-LDFLAGS = -O3 -lSDL2 -lm
+CFLAGS := -O3
+LDFLAGS := -O3 -lSDL2 -lm -I${SDL2_INCLUDE_PATH} -L${SDL2_LIB_PATH}
+SRC_DIR := ./src
+BIN_DIR := ./bin
 
-SRC = ${wildcard src/*.c}
-OBJ = ${SRC:.c=.o}
-EXEC := bin/mandelbrot_c
+SRCS := ${shell find ${SRC_DIR} -name '*.c'}
+HDRS := ${SRCS:%.c=%.h}
+OBJS := ${SRCS:%=${BIN_DIR}/%.o}
+EXEC := ${BIN_DIR}/mandelbrot_c
 
-all: ${SRC} ${OBJ} ${EXEC}
+${EXEC}: ${OBJS}
+	${CC} ${OBJS} ${LDFLAGS} -o $@
 
-${EXEC}: ${OBJ}
-	${CC} -I${SDL2_INCLUDE_PATH} -L${SDL2_LIB_PATH} ${LDFLAGS} $^ -o $@
+${BIN_DIR}/%.c.o: %.c
+	mkdir -p ${dir $@}
+	${CC} -c $< ${CFLAGS} -o $@
 
-%.o: %.c ${HDR}
-	${CC} ${CFLAGS} $< -o $@
+.PHONY: clean
 
 clean:
-	rm src/*.o ${EXEC}
+	rm -rf ${BIN_DIR}/*

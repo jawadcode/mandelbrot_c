@@ -1,0 +1,41 @@
+[
+  {
+    "arguments": [
+      "/sbin/clang",
+      "-c",
+      "-O3",
+      "-o",
+      "bin/./src/main.c.o",
+      "src/main.c"
+    ],
+    "directory": "/home/jawad/Desktop/mandelbrot_c",
+    "file": "/home/jawad/Desktop/mandelbrot_c/src/main.c",
+    "output": "/home/jawad/Desktop/mandelbrot_c/bin/src/main.c.o"
+  },
+  {
+    "arguments": [
+      "/sbin/clang",
+      "-c",
+      "-O3",
+      "-o",
+      "bin/./src/mandelbrot.c.o",
+      "src/mandelbrot.c"
+    ],
+    "directory": "/home/jawad/Desktop/mandelbrot_c",
+    "file": "/home/jawad/Desktop/mandelbrot_c/src/mandelbrot.c",
+    "output": "/home/jawad/Desktop/mandelbrot_c/bin/src/mandelbrot.c.o"
+  },
+  {
+    "arguments": [
+      "/sbin/clang",
+      "-c",
+      "-O3",
+      "-o",
+      "bin/./src/hsv.c.o",
+      "src/hsv.c"
+    ],
+    "directory": "/home/jawad/Desktop/mandelbrot_c",
+    "file": "/home/jawad/Desktop/mandelbrot_c/src/hsv.c",
+    "output": "/home/jawad/Desktop/mandelbrot_c/bin/src/hsv.c.o"
+  }
+]
